@@ -1,14 +1,13 @@
 #include <stdio.h>
 /**
- *fizz-buzz - Affiche les chiffres de 1 à 100, sauf dans certains cas.
- *
- *
+ * main - Entry point
+ * Return: Always 0
  */
-void fizzbuzz(void)
+int main()
 {
 	int i;
 
-	for (i = 1; i <=100; i++)
+	for (i = 1; i <= 100; i++)
 	{
 		if (i % 3 == 0)
 		{
@@ -18,7 +17,7 @@ void fizzbuzz(void)
 		{
 			printf("Buzz");
 		}
-	        else if (i % 3 == 0 && i % 5 == 0)
+		else if (i % 3 == 0 && i % 5 == 0)
 		{
 			printf("FizzBuzz");
 		}
@@ -29,4 +28,5 @@ void fizzbuzz(void)
 			printf(" ");
 	}
 	printf("\n");
+	return (0);
 }
