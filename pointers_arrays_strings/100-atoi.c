@@ -24,5 +24,8 @@ int _atoi(char *s)
 			break; /*fin du nombre*/
 		s++;
 	}
-	return (sign * result);
+	if (sign < 0)
+		return (-result);
+	else
+		return(result);
 }
