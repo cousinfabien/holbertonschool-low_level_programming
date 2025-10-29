@@ -1,6 +1,6 @@
 #include "main.h"
 /**
- *puts 2 - affiche un caractere sur deux
+ *puts2 - affiche un caractere sur deux
  *@str: string
  */
 void puts2(char *str)
