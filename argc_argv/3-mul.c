@@ -18,7 +18,7 @@ int str_int(char *s)
 		i++;
 	}
 
-	for(; s[i] != '\0'; i++)
+	for (; s[i] != '\0'; i++)
 		n = n * 10 + (s[i] - '0');
 
 	return (n * signe);
@@ -26,6 +26,7 @@ int str_int(char *s)
 
 /**
  *main - affiche la multiplication de deux entiers
+ *@argc: compte d'arguments
  *@argv: table d'arguments
  *Return: produit des deux entiers
  */
