@@ -1,5 +1,5 @@
 #ifndef DOG_H
-11;rgb:2b2b/2b2b/2b2b#define DOG_H
+#define DOG_H
 
 /**
  * struct dog - Structure representant les infos basiques d'un chien
