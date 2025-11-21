@@ -81,7 +81,7 @@ void print_all(const char * const format, ...)
 	char c;
 	int num;
 	float f;
-	const char *separator = ", ";
+	char *separator = ", ";
 
 	va_start(args, format);
 
