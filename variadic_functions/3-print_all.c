@@ -81,7 +81,7 @@ void print_all(const char * const format, ...)
 	char c;
 	int num;
 	float f;
-	char *separator = ", ";
+	const char *separator = ", ";
 
 	va_start(args, format);
 
@@ -106,6 +106,8 @@ void print_all(const char * const format, ...)
 			case 's':
 				str = va_arg(args, char *);
 				print = print_string(print, str, separator);
+				break;
+			default:
 				break;
 		}
 		i++;
