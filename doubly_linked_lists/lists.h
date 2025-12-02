@@ -2,7 +2,7 @@
 #define LISTS_H
 #include <stddef.h>
 
-t/**
+/**
  * struct dlistint_s - doubly linked list
  * @n: integer
  * @prev: points to the previous node
