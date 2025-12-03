@@ -1,5 +1,6 @@
-include "main.h"
+#include "main.h"
 #include <stdlib.h>
+#include <stddef.h>
 
 /**
 * read_textfile - reads a text file and prints it to the POSIX stdout
@@ -44,6 +45,6 @@ ssize_t read_textfile(const char *filename, size_t letters)
 		return (0);
 	}
 	free(buffer);
-	close(fd)
+	close(fd);
 	return (w);
 }
