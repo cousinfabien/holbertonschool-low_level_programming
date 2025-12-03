@@ -5,11 +5,7 @@
 /**
  * close_fd - closes a file descriptor and handles errors
  * @fd: file descriptor to close
- *
- * If the file descriptor cannot be closed, prints an error message
- * and exits with status code 100.
  */
-
 void close_fd(int fd)
 {
 	if (close(fd) == -1)
@@ -20,16 +16,12 @@ void close_fd(int fd)
 }
 
 /**
- * copy_file - copies data from one file descriptor to another
+ * copy_file - copies data from one file to another (1024 bytes per read)
  * @fd_from: source file descriptor
  * @fd_to: destination file descriptor
- * @file_from: name of the source file (for error messages)
- * @file_to: name of the destination file (for error messages)
- *
- * Reads in chunks of 1024 bytes and writes the data to the destination.
- * Handles read/write errors and exits with codes 98 or 99 accordingly.
+ * @file_from: source filename
+ * @file_to: destination filename
  */
-
 void copy_file(int fd_from, int fd_to, char *file_from, char *file_to)
 {
 	char buffer[1024];
@@ -46,6 +38,7 @@ void copy_file(int fd_from, int fd_to, char *file_from, char *file_to)
 			exit(99);
 		}
 	}
+
 	if (r == -1)
 	{
 		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", file_from);
@@ -56,19 +49,11 @@ void copy_file(int fd_from, int fd_to, char *file_from, char *file_to)
 }
 
 /**
- * main - entry point for the file copy program
+ * main - copies the content of one file to another
  * @argc: argument count
  * @argv: argument vector
- *
- * Copies the content of one file into another.
- * Return: 0 on success.
- * Exits with:
- * 97 if the arguments are invalid,
- * 98 if the source file cannot be read,
- * 99 if the destination file cannot be written,
- * 100 if a file descriptor cannot be closed.
+ * Return: 0 on success
  */
-
 int main(int argc, char *argv[])
 {
 	int fd_from, fd_to;
@@ -94,7 +79,6 @@ int main(int argc, char *argv[])
 		exit(99);
 	}
 
-	fchmod(fd_to, 0664);
 	copy_file(fd_from, fd_to, argv[1], argv[2]);
 	close_fd(fd_from);
 	close_fd(fd_to);
