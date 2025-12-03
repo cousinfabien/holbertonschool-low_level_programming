@@ -17,28 +17,23 @@ dlistint_t *insert_dnodeint_at_index(dlistint_t **h, unsigned int idx, int n)
 	if (h == NULL)
 		return (NULL);
 
-	/* Insertion en tête */
 	if (idx == 0)
 		return (add_dnodeint(h, n));
 
 	temp = *h;
 
-	/* Avancer jusqu'au noeud juste avant l'index */
 	while (temp != NULL && i < idx - 1)
 	{
 		temp = temp->next;
 		i++;
 	}
 
-	/* Si on n'a pas trouvé la position */
 	if (temp == NULL)
 		return (NULL);
 
-	/* Si on insère en fin (après le dernier) */
 	if (temp->next == NULL)
 		return (add_dnodeint_end(h, n));
 
-	/* Insertion au milieu */
 	new_node = malloc(sizeof(dlistint_t));
 	if (new_node == NULL)
 		return (NULL);
