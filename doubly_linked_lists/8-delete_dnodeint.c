@@ -10,44 +10,44 @@
  */
 int delete_dnodeint_at_index(dlistint_t **head, unsigned int index)
 {
-    dlistint_t *temp;
-    unsigned int i = 0;
+	dlistint_t *temp;
+	unsigned int i = 0;
 
-    if (head == NULL || *head == NULL)
-        return (-1);
+	if (head == NULL || *head == NULL)
+		return (-1);
 
-    temp = *head;
+	temp = *head;
 
-    /* Cas particulier : suppression du premier élément */
-    if (index == 0)
-    {
-        *head = temp->next;
+	/* Cas particulier : suppression du premier élément */
+	if (index == 0)
+	{
+		*head = temp->next;
 
-        if (*head != NULL)   /* S'il existe un nouveau premier nœud */
-            (*head)->prev = NULL;
+		if (*head != NULL)   /* S'il existe un nouveau premier nœud */
+			(*head)->prev = NULL;
 
-        free(temp);
-        return (1);
-    }
+		free(temp);
+		return (1);
+	}
 
-    /* Avancer jusqu'au nœud à supprimer */
-    while (temp != NULL && i < index)
-    {
-        temp = temp->next;
-        i++;
-    }
+	/* Avancer jusqu'au nœud à supprimer */
+	while (temp != NULL && i < index)
+	{
+		temp = temp->next;
+		i++;
+	}
 
-    /* Si l'index dépasse la taille de la liste */
-    if (temp == NULL)
-        return (-1);
+	/* Si l'index dépasse la taille de la liste */
+	if (temp == NULL)
+		return (-1);
 
-    /* Relier les nœuds autour */
-    if (temp->prev != NULL)
-        temp->prev->next = temp->next;
+	/* Relier les nœuds autour */
+	if (temp->prev != NULL)
+		temp->prev->next = temp->next;
 
-    if (temp->next != NULL)
-        temp->next->prev = temp->prev;
+	if (temp->next != NULL)
+		temp->next->prev = temp->prev;
 
-    free(temp);
-    return (1);
+	free(temp);
+	return (1);
 }
